@@ -9,7 +9,8 @@ import { DatabaseModule } from 'src/database/database.module';
     DatabaseModule.register({
       type: 'postgres',
       host: 'localhost',
-      password: 'password',
+      username: 'postgres',
+      password: '15648977',
       port: 5432,
     }),
   ],
