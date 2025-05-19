@@ -8,7 +8,7 @@ import { UpdateCoffeeDto } from './dto/update-coffee.dto/update-coffee.dto';
 import { Flavor } from './entities/flavor.entity';
 import { PaginationQueryDto } from 'src/common/dto/pagination-query.dto/pagination-query.dto';
 
-@Injectable({ scope: Scope.TRANSIENT })
+@Injectable({ scope: Scope.REQUEST })
 export class CoffeesService {
   constructor(
     @InjectRepository(Coffee)
