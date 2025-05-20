@@ -104,6 +104,7 @@ Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
 3. Generate controller `nest g co coffees`
 4. Generate class `nest g class events/entities/event.entity`
 5. Generate filter `nest g filter common/filters/http-exception`
+6. Generate guard `nest g guard common/guards/api-key`
 
 ## PostgreSQL
 
