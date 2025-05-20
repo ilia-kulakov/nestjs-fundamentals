@@ -39,9 +39,9 @@ export class CoffeesService {
     });
   }
 
-  async findOne(id: string) {
+  async findOne(id: number) {
     const coffee = await this.coffeRepository.findOne({
-      where: { id: +id },
+      where: { id: id },
       relations: ['flavors'],
     });
     if (!coffee) {
@@ -62,14 +62,14 @@ export class CoffeesService {
     return this.coffeRepository.save(coffee);
   }
 
-  async update(id: string, updateCoffeeDto: UpdateCoffeeDto) {
+  async update(id: number, updateCoffeeDto: UpdateCoffeeDto) {
     const flavors =
       updateCoffeeDto.flavors &&
       (await Promise.all(
         updateCoffeeDto?.flavors?.map((name) => this.preloadFlavorByName(name)),
       ));
     const coffee = await this.coffeRepository.preload({
-      id: +id,
+      id: id,
       ...updateCoffeeDto,
       flavors,
     });
@@ -80,7 +80,7 @@ export class CoffeesService {
     return this.coffeRepository.save(coffee);
   }
 
-  async remove(id: string) {
+  async remove(id: number) {
     const coffee = await this.findOne(id);
     return this.coffeRepository.remove(coffee);
   }

@@ -20,6 +20,7 @@ import { PaginationQueryDto } from 'src/common/dto/pagination-query.dto/paginati
 import { REQUEST } from '@nestjs/core';
 import { Request } from 'express';
 import { Public } from 'src/common/decorators/public.decorator';
+import { ParseIntPipe } from 'src/common/pipes/parse-int/parse-int.pipe';
 
 @UsePipes(ValidationPipe)
 @Controller('coffees')
@@ -39,7 +40,8 @@ export class CoffeesController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
+  findOne(@Param('id', ParseIntPipe) id: number) {
+    console.log(id);
     return this.coffeesService.findOne(id);
   }
 
@@ -50,12 +52,15 @@ export class CoffeesController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateCoffeeDto: UpdateCoffeeDto) {
+  update(
+    @Param('id', ParseIntPipe) id: number,
+    @Body() updateCoffeeDto: UpdateCoffeeDto,
+  ) {
     return this.coffeesService.update(id, updateCoffeeDto);
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
+  remove(@Param('id', ParseIntPipe) id: number) {
     return this.coffeesService.remove(id);
   }
 }
