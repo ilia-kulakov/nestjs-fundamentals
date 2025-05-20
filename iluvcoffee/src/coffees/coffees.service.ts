@@ -25,6 +25,10 @@ export class CoffeesService {
     const databaseHost = this.configService.get('database.host', '127.0.0.1');
     console.log(`Database host from configService: ${databaseHost}`);
     console.log(`Database host from env: ${process.env.DATABASE_HOST}`);
+    const coffeesConfig = this.configService.get('coffees');
+    console.log('Coffees config:');
+    console.log(coffeesConfig);
+    console.log(this.configService.get('coffees.foo'));
   }
 
   findAll(paginationQuery: PaginationQueryDto) {
