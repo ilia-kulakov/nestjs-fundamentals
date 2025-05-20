@@ -105,6 +105,9 @@ Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
 4. Generate class `nest g class events/entities/event.entity`
 5. Generate filter `nest g filter common/filters/http-exception`
 6. Generate guard `nest g guard common/guards/api-key`
+7. Generate interceptor `nest g interceptor common/interceptors/timeout`
+8. Generate pipe `nest g pipe common/pipes/parse-int`
+9. Generate middleware `nest g middleware common/middleware/logging`
 
 ## PostgreSQL
 
