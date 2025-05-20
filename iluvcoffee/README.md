@@ -97,13 +97,20 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 
 Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
 
+## Usefull NestJS CLI commands:
+
+1. Generate module `nest g mo coffees`
+2. Generate service `nest g s coffees`
+3. Generate controller `nest g co coffees`
+4. Generate class `nest g class events/entities/event.entity`
+
 ## PostgreSQL
 
 To maintain PostgreSQL, follow this steps:
 
 1. Install Podman Desktop
 2. Go to Extensions > Compose Extension > Install
-3. Run PowerShell commands in the current folder:
+3. Run PowerShell commands in the project folder:
 
 ```PowerShell
 podman machine start
