@@ -49,9 +49,13 @@ $ npm run start:prod
 ```bash
 # unit tests
 $ npm run test
+# unit tests for coffees service
+npm run test:watch -- coffees.service
 
 # e2e tests
 $ npm run test:e2e
+# e2e tests for coffees module
+$ npm run test:e2e -- coffees
 
 # test coverage
 $ npm run test:cov
