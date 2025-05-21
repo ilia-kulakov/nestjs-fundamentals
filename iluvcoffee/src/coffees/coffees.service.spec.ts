@@ -48,6 +48,7 @@ describe('CoffeesService', () => {
     coffeeRepository = module.get<MockRepository>(getRepositoryToken(Coffee));
   });
 
+  // it = individual test
   it('should be defined', () => {
     expect(service).toBeDefined();
   });

@@ -16,12 +16,12 @@ import {
 import { CoffeesService } from './coffees.service';
 import { CreateCoffeeDto } from './dto/create-coffee.dto/create-coffee.dto';
 import { UpdateCoffeeDto } from './dto/update-coffee.dto/update-coffee.dto';
-import { PaginationQueryDto } from 'src/common/dto/pagination-query.dto/pagination-query.dto';
+import { PaginationQueryDto } from '../common/dto/pagination-query.dto/pagination-query.dto';
 import { REQUEST } from '@nestjs/core';
 import { Request } from 'express';
-import { Public } from 'src/common/decorators/public.decorator';
-import { ParseIntPipe } from 'src/common/pipes/parse-int/parse-int.pipe';
-import { Protocol } from 'src/common/decorators/protocol.decorator';
+import { Public } from '../common/decorators/public.decorator';
+import { ParseIntPipe } from '../common/pipes/parse-int/parse-int.pipe';
+import { Protocol } from '../common/decorators/protocol.decorator';
 import { ApiForbiddenResponse, ApiResponse, ApiTags } from '@nestjs/swagger';
 
 @ApiTags('coffees')
@@ -73,7 +73,7 @@ export class CoffeesController {
   update(
     @Param('id', ParseIntPipe) id: number,
     @Body()
-    // new ValidationPipe({
+    updateCoffeeDto // new ValidationPipe({
     //   whitelist: true,
     //   forbidNonWhitelisted: true,
     //   transform: true,
@@ -81,7 +81,7 @@ export class CoffeesController {
     //     enableImplicitConversion: true,
     //   },
     // }),
-    updateCoffeeDto: UpdateCoffeeDto,
+    : UpdateCoffeeDto,
   ) {
     return this.coffeesService.update(id, updateCoffeeDto);
   }
