@@ -1,6 +1,6 @@
 import { Inject, Injectable, NotFoundException, Scope } from '@nestjs/common';
 import { Coffee } from './entities/coffee.entity';
-import { Event } from 'src/events/entities/event.entity/event.entity';
+import { Event } from '../events/entities/event.entity/event.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { DataSource, Repository } from 'typeorm';
 import { CreateCoffeeDto } from './dto/create-coffee.dto/create-coffee.dto';
