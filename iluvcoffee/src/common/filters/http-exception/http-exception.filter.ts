@@ -5,7 +5,6 @@ import {
   HttpException,
 } from '@nestjs/common';
 import { Response } from 'express';
-import { timestamp } from 'rxjs';
 
 @Catch(HttpException)
 export class HttpExceptionFilter<T extends HttpException>

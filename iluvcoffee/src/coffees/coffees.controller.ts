@@ -25,7 +25,16 @@ import { Protocol } from 'src/common/decorators/protocol.decorator';
 import { ApiForbiddenResponse, ApiResponse, ApiTags } from '@nestjs/swagger';
 
 @ApiTags('coffees')
-@UsePipes(ValidationPipe)
+@UsePipes(
+  new ValidationPipe({
+    whitelist: true,
+    forbidNonWhitelisted: true,
+    transform: true,
+    transformOptions: {
+      enableImplicitConversion: true,
+    },
+  }),
+)
 @Controller('coffees')
 export class CoffeesController {
   constructor(
@@ -63,7 +72,16 @@ export class CoffeesController {
   @Patch(':id')
   update(
     @Param('id', ParseIntPipe) id: number,
-    @Body() updateCoffeeDto: UpdateCoffeeDto,
+    @Body()
+    // new ValidationPipe({
+    //   whitelist: true,
+    //   forbidNonWhitelisted: true,
+    //   transform: true,
+    //   transformOptions: {
+    //     enableImplicitConversion: true,
+    //   },
+    // }),
+    updateCoffeeDto: UpdateCoffeeDto,
   ) {
     return this.coffeesService.update(id, updateCoffeeDto);
   }
