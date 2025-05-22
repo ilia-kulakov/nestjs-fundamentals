@@ -10,8 +10,8 @@ import {
   Delete,
   Query,
   Inject,
-  UsePipes,
-  ValidationPipe,
+  // UsePipes,
+  // ValidationPipe,
 } from '@nestjs/common';
 import { CoffeesService } from './coffees.service';
 import { CreateCoffeeDto } from './dto/create-coffee.dto/create-coffee.dto';
@@ -25,16 +25,16 @@ import { Protocol } from '../common/decorators/protocol.decorator';
 import { ApiForbiddenResponse, ApiResponse, ApiTags } from '@nestjs/swagger';
 
 @ApiTags('coffees')
-@UsePipes(
-  new ValidationPipe({
-    whitelist: true,
-    forbidNonWhitelisted: true,
-    transform: true,
-    transformOptions: {
-      enableImplicitConversion: true,
-    },
-  }),
-)
+// @UsePipes(
+//   new ValidationPipe({
+//     whitelist: true,
+//     forbidNonWhitelisted: true,
+//     transform: true,
+//     transformOptions: {
+//       enableImplicitConversion: true,
+//     },
+//   }),
+// )
 @Controller('coffees')
 export class CoffeesController {
   constructor(
@@ -64,7 +64,7 @@ export class CoffeesController {
   }
 
   @Post()
-  @HttpCode(HttpStatus.GONE)
+  @HttpCode(HttpStatus.CREATED)
   create(@Body() createCoffeeDto: CreateCoffeeDto) {
     return this.coffeesService.create(createCoffeeDto);
   }
@@ -72,10 +72,9 @@ export class CoffeesController {
   @Patch(':id')
   update(
     @Param('id', ParseIntPipe) id: number,
-    @Body()
-    updateCoffeeDto // new ValidationPipe({
+    @Body() // new ValidationPipe({
     //   whitelist: true,
-    //   forbidNonWhitelisted: true,
+    updateCoffeeDto //   forbidNonWhitelisted: true,
     //   transform: true,
     //   transformOptions: {
     //     enableImplicitConversion: true,
