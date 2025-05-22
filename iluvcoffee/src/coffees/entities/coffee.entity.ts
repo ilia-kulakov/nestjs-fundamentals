@@ -5,8 +5,13 @@ import { Document } from 'mongoose';
 export class Coffee extends Document {
   @Prop()
   name: string;
+
   @Prop()
   brand: string;
+
+  @Prop({ default: 0 })
+  recommendations: number;
+
   @Prop([String])
   flavors: string[];
 }
