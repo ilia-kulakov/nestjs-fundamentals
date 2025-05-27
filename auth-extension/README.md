@@ -100,3 +100,4 @@ Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
 ## Useful Nest.js commands
 
 1. Generate resource `nest g resource coffees`
+2. Read-Eval-Print-Loop (REPL) `npm run start -- --entryFile repl` or `nest start "--entryFile" "repl"`
